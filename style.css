@@ -26,10 +26,11 @@ font-family: 'Manrope', sans-serif;
 * {
     margin: 0;
     padding: 0;
+    
 }
 
 body {
-    
+    background-color: var(--mainBackground);
     font-family: var(--font);
     background-image: url(images/bg-pattern.svg);
     background-repeat: no-repeat;
@@ -40,7 +41,7 @@ body {
     border: 1px dashed black;
     min-height: 100vh;
 
-
+    margin: 0 auto;
 }
 
 /* Header Section */
@@ -58,14 +59,201 @@ header h1 {
 }
 
 header p {
+    margin-top: 1em;
+    color: var(--text);
     font-size: 0.75rem;
     padding: 0 8em;
 }
 
+/* Main Component */
+
+main {
+    margin: 0 auto;
+    background-color: var(--pricingBackground);
+
+    height: 80vh;
+    width: 85%;
+
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px 1px rgba(0 , 0, 0, 0.1);
+}
+
+.top,
+.bottom {
+    padding: 2em 1em;
+    text-align: center;
+}
+
+
+
+/* /// Top Elements /// */
+.top-pageviews p {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+
+
+/* Price Slider */
+.top-slider {
+    margin: 2em 0;
+}
+
+input#price-slider {
+    width: 100%;
+    appearance: none;
+    border-radius: 5px;
+    height: 10px;
+    background: linear-gradient(
+      to right,
+      hsl(174, 77%, 80%) 0%,
+      hsl(174, 77%, 80%) 50%,
+      hsl(224, 65%, 95%) 0%,
+      hsl(224, 65%, 95%) 100%
+    );
+}
+
+input#price-slider::-webkit-slider-thumb {
+    appearance: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: hsl(174, 86%, 45%);
+    background-image: url(images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 7px 10px 4px rgba(16, 213, 194, 0.2);
+}
+
+input#price-slider::-webkit-slider-thumb:hover {
+    background-color: hsl(174, 77%, 80%);
+}
+
+/* End */
+
+/* Price & Billing */
+.top-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25em;
+    margin: 2em 0;
+}
+
+.top-price .emphasize {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.top-billing {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* margin: 0 1em; */
+
+    margin-bottom: 1em;
+}
+
+.top-billing .top-billing_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    color: var(--text);
+    gap: 0.65em;
+
+}
+
+.discount {
+    font-size: 0.6rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    align-self: center; 
+    
+    background-color: var(--discountBackground);
+    color: var(--discountText);
+    padding: 0.2em 0.70em;
+    border-radius: 15px;
+}
+
+@media (max-width: 360px) {
+    .discount {
+        position: static;
+    }
+
+    .top-billing {
+        flex-wrap: wrap-reverse; 
+        gap: 0.5em;
+        /* justify-content: center; */
+
+    }
+
+}
+
+.
+/* Switch/Toggle */
+.switch input {
+    opacity: 0;
+}
+
+.switch {
+    display: inline-block;
+    width: 45px;
+    height: 20px;
+    position: relative;
+}
+
+.toggle-slider {
+    position: absolute;
+    background-color: hsl(223, 50%, 87%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 25px;
+    transition: all 0.2s ease;
+}
+
+.toggle-slider:hover {
+    background-color: hsl(174, 86%, 45%);
+}
+
+.toggle-slider::before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    left: 3px;
+    top: 3px;
+    transition: all 0.4s ease-in-out;
+}
+
+.switch input:checked + .toggle-slider:before {
+    transform: translateX(25px);
+}
+/* End */
+
+
+/* ///// Bottom Part ///// */
+
+hr {
+    height: 1px;
+    background-color: var(--emptySliderBar);
+    border: none;
+}
+
+
+
+
+.desktop-view {
+    display: none;
+}
 
 /* 
-
-
 * {
     margin: 0;
     padding: 0;
