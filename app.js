@@ -5,8 +5,12 @@ let slider = document.getElementById('price-slider');
 
 let pageView = document.getElementById('pageview');
 let pricePerMonth = document.getElementById('price');
+let pricePerMonth2 = document.getElementById('price2');
+
 
 let billingToggle = document.getElementById('billing-toggle');
+let toggleColor = document.querySelector('.toggle-slider');
+
 let isYearly = false;
 
 slider.addEventListener('input', function() {
@@ -27,8 +31,10 @@ slider.addEventListener('input', function() {
 billingToggle.addEventListener("change", function () {
     if (isYearly == false) {
       isYearly = true;
+      toggleColor.style.background = 'hsl(174, 77%, 50%)';
     } else {
       isYearly = false;
+      toggleColor.style.background = 'hsl(223, 50%, 87%)';
     }
     updateValue();
 });
@@ -36,8 +42,12 @@ billingToggle.addEventListener("change", function () {
 function updateValue() {
     if (isYearly) {
       pricePerMonth.innerHTML = perMonthData[slider.value] * 0.75;
+      pricePerMonth2.innerHTML = perMonthData[slider.value] * 0.75;
+
     } else {
       pricePerMonth.innerHTML = perMonthData[slider.value];
+      pricePerMonth2.innerHTML = perMonthData[slider.value];
+      
     }
 }
 
